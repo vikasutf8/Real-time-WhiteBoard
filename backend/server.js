@@ -3,11 +3,17 @@ const http = require('http');
 const socketIo = require('socket.io');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const roomRoutes = require('./routes/rooms');
-const socketHandlers = require('./socket/socketHandlers');
+const roomRoutes = require('./routes/rooms.js');
+const socketHandlers = require('./socket/socketHandlers.js');
+const connectDB =require("./config/database.js")
+
+
 
 const app = express();
 const server = http.createServer(app);
+const PORT = process.env.PORT || 5000;
+
+// middleware
 const io = socketIo(server, {
   cors: {
     origin: "http://localhost:5173",
@@ -15,20 +21,18 @@ const io = socketIo(server, {
   }
 });
 
-// Middleware
 app.use(cors({
   origin: "http://localhost:5173",
   credentials: true
 }));
 app.use(express.json());
+app.use(express.urlencoded());
 
-// MongoDB Connection
-mongoose.connect(process.env.MONGO_URI);
 
 // Routes
 app.use('/api/rooms', roomRoutes);
 
-// Socket.io connection handling
+
 io.on('connection', (socket) => {
   console.log('User connected:', socket.id);
   
@@ -51,7 +55,22 @@ setInterval(async () => {
   }
 }, 60 * 60 * 1000);
 
-const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+
+// server.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
+
+const startServer = async () => {
+    try {
+      await connectDB();
+      server.listen(PORT, () => {
+        console.log(` Server running on port ${PORT}`);
+      });
+    } catch (error) {
+      console.error('Failed to start server:', error);
+      process.exit(1);
+    }
+  };
+
+startServer();
+
