@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const roomRoutes = require('./routes/rooms.js');
 const socketHandlers = require('./socket/socketHandlers.js');
 const connectDB =require("./config/database.js")
+const bodyParser = require('body-parser');
 
 
 
@@ -27,6 +28,8 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 
 // Routes

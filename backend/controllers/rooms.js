@@ -8,16 +8,18 @@ const generateRoomId = () => {
 const createUser =async (req, res) => {
     try {
       let { roomId } = req.body;
-      
+      console.log(roomId)
       // If no room ID provided, generate one
       if (!roomId) {
         roomId = generateRoomId();
+        console.log(roomId,"flag false")
       } else {
         roomId = roomId.toUpperCase();
+        console.log(roomId,"flag true")
       }
       
-      let room = await Room.findOne({ roomId });
-      
+      let room = await Room.findOne({ roomId: roomId });
+      console.log(room)
       // Create room if it doesn't exist
       if (!room) {
         room = new Room({ roomId });

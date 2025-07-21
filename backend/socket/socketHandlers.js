@@ -1,4 +1,4 @@
-const Room = require('../models/Room');
+const {Room} =require("../models/Room.js")
 
 // Track connected users per room
 const roomUsers = new Map();

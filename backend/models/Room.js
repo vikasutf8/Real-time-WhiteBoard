@@ -39,4 +39,5 @@ roomSchema.pre('save', function() {
   this.lastActivity = new Date();
 });
 
-module.exports = mongoose.model('Room', roomSchema);
+const Room = mongoose.model('Room', roomSchema);
+module.exports={Room}
