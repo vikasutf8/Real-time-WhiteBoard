@@ -6,8 +6,7 @@ const mongoose =require("mongoose")
     //   ? process.env.MONGODB_TEST_URI 
     //   : process.env.MONGODB_URI;
 
-    // const mongoUri =process.env.MONGODB_URI;
-    const mongoUri="mongodb+srv://Sofrik-PMS:Sofrik-PMS@cluster0.kqyyb5y.mongodb.net/WhiteBoard?retryWrites=true&w=majority&appName=Cluster0"
+    const mongoUri =process.env.MONGODB_URI;
     if (!mongoUri) {
       throw new Error('MongoDB URI is not defined in environment variables');
     }

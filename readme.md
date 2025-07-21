@@ -74,27 +74,6 @@ collaborative-whiteboard/
 cd server
 npm install
 # Ensure MongoDB is running at mongodb://localhost:27017
-│   ├── server.js
-│   └── package.json
-└── README.md
-```
-
----
-
-## Setup Instructions
-
-### Prerequisites
-
-- Node.js (v16+)
-- MongoDB (local or cloud)
-- npm or yarn
-
-### Backend
-
-```bash
-cd server
-npm install
-# Ensure MongoDB is running at mongodb://localhost:27017
 npm run dev
 # Server runs on http://localhost:5000
 ```
