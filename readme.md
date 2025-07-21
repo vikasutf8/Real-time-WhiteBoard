@@ -197,11 +197,10 @@ Get room info and drawing data.
 
 ### Deployment Options
 
-- **Heroku:** Deploy server, connect to MongoDB Atlas.
-- **DigitalOcean/AWS:** Use PM2 for backend, serve frontend via Nginx or Express.
 - **Vercel/Netlify:** For frontend only (backend deployed separately).
 
----
+---<img width="1280" height="832" alt="Screenshot 2025-07-21 at 9 52 25 AM" src="https://github.com/user-attachments/assets/49027990-6c62-4d4d-b995-f6f22c9344d5" />
+
 
 ## Production Considerations
 
@@ -226,18 +225,3 @@ Get room info and drawing data.
 
 ---
 
-## Browser Support
-
-- Chrome (recommended)
-- Firefox
-- Safari
-- Edge
-- Touch devices (tablets) supported
-
----
-
-## License
-
-MIT
-
----
